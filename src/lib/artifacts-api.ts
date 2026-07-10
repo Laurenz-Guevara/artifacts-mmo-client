@@ -5,9 +5,14 @@ type ApiCharacter = components["schemas"]["CharacterSchema"];
 export interface Character {
   name: ApiCharacter["name"];
   level: ApiCharacter["level"];
+  skin: ApiCharacter["skin"];
 }
 
 const API_BASE_URL = "https://api.artifactsmmo.com";
+
+export function getCharacterSkinUrl(skin: string): string {
+  return `https://artifactsmmo.com/images/characters/${skin}.png`;
+}
 
 export async function getMyCharacters(): Promise<Character[]> {
   const token = process.env.API_TOKEN;
