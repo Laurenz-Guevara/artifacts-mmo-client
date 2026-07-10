@@ -1,5 +1,6 @@
 import type { Character } from "@/lib/artifacts-api";
 import Card from "@/components/ui/Card";
+import CharacterInventory from "@/components/CharacterInventory";
 
 export default function CharacterDashboard({
   selectedCharacter,
@@ -7,10 +8,12 @@ export default function CharacterDashboard({
   selectedCharacter: Character;
 }) {
   return (
-    <Card>
-      <h1 className="">Character Dashboard</h1>
-      <p>Selected Character: {selectedCharacter.name}</p>
-      <p>Level: {selectedCharacter.level}</p>
-    </Card>
+    <div className="grid grid-cols-2 gap-4">
+      <Card>
+        <p>Selected Character: {selectedCharacter.name}</p>
+        <p>Level: {selectedCharacter.level}</p>
+      </Card>
+      <CharacterInventory selectedCharacter={selectedCharacter} />
+    </div>
   );
 }
