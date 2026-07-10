@@ -1,4 +1,4 @@
-import CharacterSelection from "@/components/CharacterSelection";
+import Dashboard from "@/components/Dashboard";
 import { getMyCharacters } from "@/lib/artifacts-api";
 
 export default async function Home() {
@@ -6,7 +6,7 @@ export default async function Home() {
 
   return (
     <div className="p-4 space-y-4">
-      <CharacterSelection characters={characters} />
+      <Dashboard characters={characters} />
     </div>
   );
 }
