@@ -8,6 +8,7 @@ export default function Navigation() {
           <p>Artifacts MMO</p>
         </div>
         <Link className="py-2 px-4 hover:text-maroon" href="https://docs.artifactsmmo.com/" target="_blanl">Docs</Link>
+        <Link className="py-2 px-4 hover:text-maroon" href="https://play.artifactsmmo.com/" target="_blanl">Online Client</Link>
         <Link className="py-2 px-4 hover:text-maroon border-r border-surface-1" href="https://github.com/Laurenz-Guevara/artifacts-mmo-client" target="_blank">GitHub</Link>
       </div>
     </div>
