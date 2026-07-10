@@ -1,6 +1,6 @@
 import Image from "next/image";
-import type { Character } from "@/lib/artifacts-api";
-import { getCharacterSkinUrl } from "@/lib/artifacts-api";
+import type { Character } from "@/lib/characters/api";
+import { getCharacterSkinUrl } from "@/lib/characters/api";
 import Card from "@/components/ui/Card";
 
 export function CharacterPanelWrapper({

@@ -1,12 +1,18 @@
 "use client";
 
 import { useState } from "react";
-import type { Character } from "@/lib/artifacts-api";
+import type { Character } from "@/lib/characters/api";
 import { CharacterPanelWrapper } from "@/components/CharacterPanel";
 import CharacterDashboard from "@/components/CharacterDashboard";
 import Card from "@/components/ui/Card";
 
-export default function CharacterSelection({ characters } : { characters: Character[] }) {
+export default function CharacterSelection({
+  characters,
+  itemNames,
+}: {
+  characters: Character[];
+  itemNames: Record<string, string>;
+}) {
   const [selectedCharacter, setSelectedCharacter] = useState<Character>(characters[0]);
 
   return (
@@ -17,7 +23,10 @@ export default function CharacterSelection({ characters } : { characters: Charac
         onSelectCharacter={setSelectedCharacter}
       />
       {selectedCharacter ? (
-        <CharacterDashboard selectedCharacter={selectedCharacter} />
+        <CharacterDashboard
+          selectedCharacter={selectedCharacter}
+          itemNames={itemNames}
+        />
       ) : (
           <Card>
             <p>No avaliable characters...</p>
