@@ -1,14 +1,27 @@
 import Image from "next/image";
 import type { Character } from "@/lib/artifacts-api";
 import { getCharacterSkinUrl } from "@/lib/artifacts-api";
+import Card from "@/components/ui/Card";
 
-export function CharacterPanelWrapper({ characters} : {characters: Character[]}) {
+export function CharacterPanelWrapper({
+  characters,
+  selectedCharacter,
+  onSelectCharacter,
+}: {
+  characters: Character[];
+  selectedCharacter?: Character;
+  onSelectCharacter?: (character: Character) => void;
+}) {
   return (
-    <div className="flex gap-x-4 p-4">
-      {characters.map((character, index) => (
-        <div className="bg-surface-0/50 border border-surface-1 px-3 py-2" key={index}>
+    <div className="flex gap-x-4">
+      {characters.map((character) => (
+        <Card
+          key={character.name}
+          onClick={() => onSelectCharacter?.(character)}
+          selected={character === selectedCharacter}
+        >
           <CharacterPanel character={character} />
-        </div>
+        </Card>
       ))}
     </div>
   )

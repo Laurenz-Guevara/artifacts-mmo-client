@@ -1,14 +1,12 @@
-import { CharacterPanelWrapper } from "@/components/CharacterPanel";
-import Navigation from "@/components/Navigation";
+import CharacterSelection from "@/components/CharacterSelection";
 import { getMyCharacters } from "@/lib/artifacts-api";
 
 export default async function Home() {
   const characters = await getMyCharacters();
 
   return (
-    <div>
-      <Navigation />
-      <CharacterPanelWrapper characters={characters} />
+    <div className="p-4 space-y-4">
+      <CharacterSelection characters={characters} />
     </div>
   );
 }
